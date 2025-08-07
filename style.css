@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: none;
+    --btn-bg: #ffb120;
+    --btn-active-bg: #c18618;
+}
+#game-container{
+    font-family: "Teko", Helvetica, sans-serif;
+    width: fit-content;
+    position: relative;
+    margin: 0 auto;
+}
+canvas{
+    display: block;
+}
+
+/*gui*/
+#gui-container{
+    pointer-events:all;
+    position: absolute;
+    inset: 0;
+    padding:10px 30px ;
+    background: url("assets/img/background_menu.png");
+    background-size: cover;
+}
+#gui-container.ingame{
+    pointer-events: none; /*la GUI non blocca l'interazione con il canvas*/
+    background: none;
+}
+
+/*punti e preview */
+#gui-container #game-stats-container{
+    visibility: hidden;
+}
+#gui-container.ingame #game-stats-container{
+    visibility: visible;
+}
+
+/*menu iniziale*/
+#gui-container.ingame #startup-container{
+    visibility: hidden;
+}
+
+#startup-container{
+    text-align: center;
+    text-shadow:
+       5px 5px 0 #000,
+     -3px -3px 0 #000,  
+      3px -3px 0 #000,
+      -3px 3px 0 #000,
+       3px 3px 0 #000;
+}
+#game-title{
+    font-size: 110px;
+    color: #fff;
+}
+#startup-container button{
+    text-shadow: inherit;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 50px;
+    color: #fff;
+    outline: none;
+    border-radius: 10px;
+    width: 300px;
+    background-color: var(--btn-bg);
+    margin-bottom: 20px;
+}
+#startup-container button:active{
+    background-color: var(--btn-active-bg);
+}
+
+/*icone e testo di gioco*/
+
+#game-stats-container{
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    align-items:start;
+    text-shadow:
+       5px 5px 0 #000,
+     -3px -3px 0 #000,  
+      3px -3px 0 #000,
+      -3px 3px 0 #000,
+       3px 3px 0 #000;
+}
+
+#ball-preview-container{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:10px;
+    border-radius: 10px;
+    border: solid black 3px;
+    background-color: rgba(0,0,0,0.5);
+}
+#score-container{
+    width: fit-content;
+    font-weight: 700;
+    font-size: 3rem;
+}
+.ball-preview{
+    aspect-ratio: 1/1;
+    width: 70px;
+    display: grid;
+    place-content: center;
+}
